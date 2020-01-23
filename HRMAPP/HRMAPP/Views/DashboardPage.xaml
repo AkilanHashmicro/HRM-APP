@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HRMAPP.Views.DashboardPage" Title="         DASHBOARD        " BackgroundColor="#373D4B">
+    
+
+        <ScrollView>
+
+        <Grid>
+
+         <!-- <AbsoluteLayout >  
+            <StackLayout >-->
+     
+                  <Grid.RowDefinitions>
+                        <RowDefinition Height=".03*"/>
+                        <RowDefinition Height=".44*"/>
+                         <RowDefinition Height=".06*"/>
+                        <RowDefinition Height=".44*"/>
+                     <RowDefinition Height=".03*"/>
+                  </Grid.RowDefinitions>
+                    
+                  <Grid.ColumnDefinitions>
+                 <ColumnDefinition Width=".02*"/>
+                         <ColumnDefinition Width=".45*"/> 
+                <ColumnDefinition Width=".06*"/>
+                        <ColumnDefinition Width=".45*"/>
+                        <ColumnDefinition Width=".02*"/>
+                  </Grid.ColumnDefinitions>
+
+                       <Frame CornerRadius="8" HasShadow="True" BackgroundColor="White" Padding="10,0,10,0" Grid.Row="1" Grid.Column="1" >  
+                    <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="0,10,0,0"   x:Name="leave_layout">                                                 
+                            <StackLayout>
+                                <Image Source="leavesblack.png"  VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="50" WidthRequest="50" />
+                                <Label Text="LEAVES" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                            </StackLayout>                        
+                    </StackLayout>
+                        </Frame>
+
+                    <Frame CornerRadius="8" HasShadow="True" Padding="10,0,10,0" BackgroundColor="White" Grid.Row="1" Grid.Column="3">
+                    <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="0,10,0,0"  x:Name="expense_layout">                        
+                            <StackLayout>
+                                <Image Source="dollarsym.png"  VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="50" WidthRequest="50" />
+                                <Label Text="EXPENSE" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                            </StackLayout>                        
+                    </StackLayout>
+                        </Frame>
+                                               
+            
+        <StackLayout IsVisible="true" Margin="0,0,0,0" Padding="0" HeightRequest="20" x:Name="expense_layout1" Grid.Row="2" Grid.Column="2">
+          <ActivityIndicator  x:Name="act_ind" Margin="0,0,0,0" HeightRequest="20" IsRunning="false" Color ="Red"/>
+          </StackLayout>
+
+                     <Frame CornerRadius="8" HasShadow="True" Margin="0,-30,0,0"  BackgroundColor="White" Grid.Row="3" Grid.Column="1" Padding="10,0,10,0">
+                     <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="0,0,0,0" x:Name="attendance_layout" >                       
+                            <StackLayout>
+                                <Image Source="attendblack.png"  VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="50" WidthRequest="50"/>
+                                <Label Text="ATTENDANCE" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                            </StackLayout>                     
+                    </StackLayout>
+                           </Frame>
+
+                            <Frame CornerRadius="8" HasShadow="True" Grid.Row="3" Margin="0,-30,0,0" Grid.Column="3" BackgroundColor="White" Padding="10,0,10,0" >
+                     <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="0,0,0,0"  x:Name="timesheet_layout" >                       
+                            <StackLayout>
+                                <Image Source="tsbold.png"  VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="50" WidthRequest="50"/>
+                                <Label Text="TIME SHEET" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                            </StackLayout>                       
+                    </StackLayout>
+                         </Frame>
+
+<!--
+         </StackLayout>
+                                    
+             </AbsoluteLayout>    -->
+              </Grid>
+
+        </ScrollView>
+    
+    
+</ContentPage>

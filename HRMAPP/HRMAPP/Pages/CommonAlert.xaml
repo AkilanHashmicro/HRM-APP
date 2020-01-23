@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HRMAPP.Pages.CommonAlert"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+
+    <StackLayout VerticalOptions="Center" Spacing="15" Margin="30,0" BackgroundColor="#F0EEEF">
+        
+        <StackLayout Orientation="Horizontal" HeightRequest="40" Padding="20,5,10,0"  BackgroundColor="#373D4B">
+            <Label x:Name="Title" Text="Warning" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Start" TextColor="White" />
+        </StackLayout>
+        
+        <Label x:Name="body" Text="" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Medium"/>
+        
+        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Margin="0,0,20,0">
+            <Button x:Name="yesbtn" Text="Ok" Clicked="okbtn_Clicked" HorizontalOptions="Center" WidthRequest="60" HeightRequest="40"  BackgroundColor="#000" TextColor="White"/>
+        </StackLayout>
+
+
+        <BoxView HeightRequest="1" BackgroundColor="Transparent"/>
+    </StackLayout>
+    
+</pages:PopupPage>

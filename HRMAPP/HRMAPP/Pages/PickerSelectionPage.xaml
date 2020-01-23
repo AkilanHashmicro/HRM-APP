@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="HRMAPP.Pages.PickerSelectionPage">
+
+    <Frame
+        CornerRadius="10"
+        x:Name="FrameContainer"
+        Padding="10,10,10,10"        
+        HorizontalOptions="Center" 
+        VerticalOptions="Center"
+        BackgroundColor="White">
+
+        <StackLayout x:Name="mainstack" IsClippedToBounds="True" Padding="5,0,0,0" Spacing="3"  HeightRequest="450" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center">
+
+
+            <BoxView VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" WidthRequest="50" Color="#5b5d68"/>
+
+            <SearchBar x:Name="searchBar"  Placeholder="Search Product" TextColor="Black" TextChanged="SearchBar_TextChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" IsVisible="true" />
+
+            <BoxView x:Name="meeting_box" Color="Transparent" HeightRequest="5" IsVisible="false"/>
+
+            <StackLayout Orientation="Vertical" VerticalOptions="Center" >
+                <Frame BackgroundColor="#f0eaea" VerticalOptions="FillAndExpand" Padding="0" >
+                    <StackLayout Padding="10,0" >
+                        <ListView x:Name="pickerListView" ItemTapped="pickerListView_ItemTapped" SeparatorColor="Blue"  >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell Tapped="ViewCell_Tapped">
+                                        <Grid>
+                                            <Label Text="{Binding Name}" FontSize="Small" FontAttributes="Bold" VerticalTextAlignment="Center" TextColor="Black"/>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+        </StackLayout>
+    </Frame>
+
+
+</pages:PopupPage>

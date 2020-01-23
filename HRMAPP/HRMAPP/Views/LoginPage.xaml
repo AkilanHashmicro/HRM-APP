@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HRMAPP"
+             x:Class="HRMAPP.Views.LoginPage" BackgroundImage="bga.png" NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+
+ <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+ <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+
+    <!--    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".05*"/>
+                    <RowDefinition Height=".20*"/>
+                    <RowDefinition Height=".05*"/>
+                    <RowDefinition Height=".45*"/>
+                    <RowDefinition Height=".05*"/>
+                    <RowDefinition Height=".05*"/>
+                    <RowDefinition Height=".05*"/>
+                    <RowDefinition Height=".10*"/>
+
+                </Grid.RowDefinitions>
+
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" >
+                    <Image Source="equipnew.png"  WidthRequest="220" HeightRequest="100"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="2"></StackLayout>
+
+                <StackLayout Grid.Row="3" Padding="5,0,5,0">
+
+                    <Frame BackgroundColor="#BF043055" HasShadow="False" CornerRadius="10" Padding="2,2,2,2" >
+
+                        <StackLayout Padding="5,5,5,5">
+
+                            <StackLayout >
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width=".12*"></ColumnDefinition>
+                                        <ColumnDefinition Width=".78*"></ColumnDefinition>
+                                        <ColumnDefinition Width=".10*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Grid.Column="0" Orientation="Horizontal" Margin="10,3,0,-3">
+                                        <Image Source="world.png"  HeightRequest="18" HorizontalOptions="Center" />
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="1" Orientation="Horizontal" Margin="0,3,0,-3">
+                                        <local:CustomEntry x:Name="UrlTxt" Text=""  Placeholder="Your self-hosted URL" PlaceholderColor="white" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" TextColor="White" TextChanged="UrlTxt_TextChanged" />
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="2" Orientation="Horizontal" Margin="0,3,0,-3" x:Name="url_tickimg" IsVisible="False">
+                                        <Image  Source="urltick.png" />
+                                    </StackLayout>
+                                </Grid>
+
+                                <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="White" IsVisible="False" x:Name="db_layout1"/>
+
+                                <Grid x:Name="db_layout" IsVisible="False">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width=".12*"></ColumnDefinition>
+                                        <ColumnDefinition Width=".80*"></ColumnDefinition>
+                                        <ColumnDefinition Width=".08*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Grid.Column="0" Orientation="Horizontal" Margin="10,-5,0,-5">
+                                        <Image Source="database.png"  HeightRequest="18" HorizontalOptions="Center" />
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="1" Margin="0,-5,0,-5" >
+                                        <local:CustomPicker x:Name="databasePic"  TextColor="White" Title="Database" />
+                                    </StackLayout>
+                                </Grid>
+
+                                <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="White"/>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width=".12*"></ColumnDefinition>
+                                        <ColumnDefinition Width=".80*"></ColumnDefinition>
+                                        <ColumnDefinition Width=".08*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Grid.Column="0" Orientation="Horizontal" Margin="10,-5,0,-5">
+                                        <Image Source="usericon.png"  HeightRequest="18" HorizontalOptions="Center" />
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="1" Orientation="Horizontal" Margin="0,-5,0,-5">
+                                        <local:CustomEntry x:Name="UserTxt" Placeholder="Username" PlaceholderColor="White" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" TextColor="White" />
+                                    </StackLayout>
+                                </Grid>
+
+                                <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="White"/>
+
+                                <Grid >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width=".12*"></ColumnDefinition>
+                                        <ColumnDefinition Width=".78*"></ColumnDefinition>
+                                        <ColumnDefinition Width=".10*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Grid.Column="0" Orientation="Horizontal" Margin="10,-3,0,3" >
+                                        <Image Source="lock.png"  HeightRequest="18" HorizontalOptions="Center" />
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="1" Orientation="Horizontal" Margin="0,-3,0,3">
+                                        <local:CustomEntry x:Name="PassTxt"  Placeholder="Password" PlaceholderColor="White" HorizontalOptions="FillAndExpand" IsPassword="True" HorizontalTextAlignment="Start" TextColor="White" />
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="2" Orientation="Horizontal" Margin="0,-3,10,3" x:Name="show_password_layout">
+                                        <Image Source="ic_show.png" HeightRequest="24" HorizontalOptions="Center" x:Name="eye_view"/>
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="2" Orientation="Horizontal" Margin="0,-3,10,3" IsVisible="False" x:Name="hide_password_layout">
+                                        <Image Source="ic_hide.png" HeightRequest="24" HorizontalOptions="Center" x:Name="eye_close"/>
+                                    </StackLayout>
+                                </Grid>
+
+                                <!--<BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="White" />-->
+
+
+                            </StackLayout>
+
+
+                            <StackLayout Padding="10,0,10,10" >
+                                <Button Text="LOGIN"  WidthRequest="200" HeightRequest="40" Clicked="btnLogin_Clicked" BackgroundColor="#128197" TextColor="White" />
+                                <!--128197 , CC454C-->
+                            </StackLayout>
+
+
+                        </StackLayout>
+
+                    </Frame>
+
+
+                </StackLayout>
+
+
+                <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+                <StackLayout Grid.Row="4" >
+                    <Label x:Name="loginfailedAlert" Text="Invalid Username or Password" HorizontalTextAlignment="Center" TextColor="White" IsVisible="False"  FontSize="Micro"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="5"></StackLayout>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Grid.Row="6">
+                    <Label x:Name="powered_by" Text="Powered By" HorizontalTextAlignment="Center" TextColor="White" FontSize="Micro" VerticalTextAlignment="Center"/>
+                    <Label x:Name="by_hashmicro" Text="HashMicro" HorizontalTextAlignment="Start" FontAttributes="Bold" TextColor="White" FontSize="Small" VerticalTextAlignment="Center"/>
+                </StackLayout>
+
+            </Grid>
+
+
+        </StackLayout>
+
+     <StackLayout IsVisible="true" Padding="12"
+                 AbsoluteLayout.LayoutFlags="PositionProportional"
+                 AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+       <ActivityIndicator  x:Name="act_ind"  IsRunning="false" Color ="Red"/>
+     </StackLayout>
+    </AbsoluteLayout>
+        
+        </ScrollView>
+  </ContentPage>
+
+            
+

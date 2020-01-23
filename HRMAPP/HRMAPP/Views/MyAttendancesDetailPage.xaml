@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="HRMAPP.Views.MyAttendancesDetailPage"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+            Title="Attendance Details" >
+    <ContentPage.Content>
+        <ScrollView>
+
+    <StackLayout Padding="10,0,10,0">
+
+            <Grid Padding="10,5,5,5">
+             <Grid.ColumnDefinitions>
+               <ColumnDefinition Width=".40*" />                                                
+                <ColumnDefinition Width=".60*" /> 
+             </Grid.ColumnDefinitions>                                   
+                <StackLayout Grid.Column="0">
+                    <Label Text="Employee" TextColor="#373D4B" FontSize="Small"  FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1">
+                    <Label x:Name="emp_txt" Text="Test" HorizontalOptions="Start" TextColor="#373D4B" FontSize="Small" />
+                </StackLayout>                
+            </Grid>
+
+           <Grid Padding="10,5,5,5">
+             <Grid.ColumnDefinitions>
+               <ColumnDefinition Width=".40*" />                                                
+                <ColumnDefinition Width=".60*" /> 
+             </Grid.ColumnDefinitions>                                    
+                <StackLayout Grid.Column="0">
+                    <Label Text="Check In" TextColor="#373D4B" FontSize="Small"  FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1">
+                    <Label x:Name="checkin_txt" HorizontalOptions="Start" TextColor="#373D4B" FontSize="Small"/>
+                </StackLayout>                
+            </Grid>
+
+            <Grid Padding="10,5,5,5">
+             <Grid.ColumnDefinitions>
+               <ColumnDefinition Width=".40*" />                                                
+                <ColumnDefinition Width=".60*" /> 
+             </Grid.ColumnDefinitions>                                   
+                <StackLayout Grid.Column="0">
+                    <Label Text="Check In latitude" TextColor="#373D4B" FontSize="Small"  FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1">
+                    <Label x:Name="checkin_lat_txt" HorizontalOptions="Start" TextColor="#373D4B" FontSize="Small"/>
+                </StackLayout>                
+            </Grid> 
+
+             <Grid Padding="10,5,5,5">
+             <Grid.ColumnDefinitions>
+               <ColumnDefinition Width=".40*" />                                                
+                <ColumnDefinition Width=".60*" /> 
+             </Grid.ColumnDefinitions>                                   
+                <StackLayout Grid.Column="0">
+                    <Label Text="Check In longitude" TextColor="#373D4B" FontSize="Small"  FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1">
+                    <Label x:Name="checkin_long_txt" HorizontalOptions="Start" TextColor="#373D4B" FontSize="Small"/>
+                </StackLayout>                
+            </Grid> 
+
+            <Grid Padding="10,5,5,5">
+             <Grid.ColumnDefinitions>
+               <ColumnDefinition Width=".40*" />                                                
+                <ColumnDefinition Width=".60*" /> 
+             </Grid.ColumnDefinitions>                                   
+                <StackLayout Grid.Column="0">
+                    <Label Text="Check In Location" TextColor="#373D4B" FontSize="Small"  FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1">
+                    <Label x:Name="checkin_loc_txt" HorizontalOptions="Start" TextColor="#373D4B" FontSize="Small"/>
+                </StackLayout>                
+            </Grid> 
+            
+               <StackLayout Padding="10" BackgroundColor="Transparent">
+               <Label Text="Sign In" TextColor="#373D4B" FontSize="Small"  FontAttributes="Bold"/>                
+                <StackLayout Padding="10" BackgroundColor="#363E4B">
+                    <StackLayout  VerticalOptions="Center">            
+                    <maps:Map WidthRequest="300" HeightRequest="150"
+                  x:Name="Sign_in_map"
+                  IsShowingUser="true"
+                  MapType="Street" />
+                     </StackLayout>                                      
+                     </StackLayout>                    
+               </StackLayout>
+
+          
+
+           <Grid Padding="10,5,5,5">
+             <Grid.ColumnDefinitions>
+               <ColumnDefinition Width=".40*" />                                                
+                <ColumnDefinition Width=".60*" /> 
+             </Grid.ColumnDefinitions>                                    
+                <StackLayout Grid.Column="0">
+                    <Label Text="Check Out" TextColor="#373D4B" FontSize="Small"  FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1">
+                    <Label x:Name="checkout_txt" HorizontalOptions="Start" TextColor="#373D4B" FontSize="Small"/>
+                </StackLayout>                
+            </Grid>
+
+            <Grid Padding="10,5,5,5">
+             <Grid.ColumnDefinitions>
+               <ColumnDefinition Width=".40*" />                                                
+                <ColumnDefinition Width=".60*" /> 
+             </Grid.ColumnDefinitions>                                   
+                <StackLayout Grid.Column="0">
+                    <Label Text="Check Out latitude" TextColor="#373D4B" FontSize="Small"  FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1">
+                    <Label x:Name="checkout_lat_txt" HorizontalOptions="Start" TextColor="#373D4B" FontSize="Small"/>
+                </StackLayout>                
+            </Grid> 
+
+             <Grid Padding="10,5,5,5">
+             <Grid.ColumnDefinitions>
+               <ColumnDefinition Width=".40*" />                                                
+                <ColumnDefinition Width=".60*" /> 
+             </Grid.ColumnDefinitions>                                   
+                <StackLayout Grid.Column="0">
+                    <Label Text="Check Out longitude" TextColor="#373D4B" FontSize="Small"  FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1">
+                    <Label x:Name="checkout_long_txt" HorizontalOptions="Start" TextColor="#373D4B" FontSize="Small"/>
+                </StackLayout>                
+            </Grid> 
+
+            <Grid Padding="10,5,5,5">
+             <Grid.ColumnDefinitions>
+               <ColumnDefinition Width=".40*" />                                                
+                <ColumnDefinition Width=".60*" /> 
+             </Grid.ColumnDefinitions>                                   
+                <StackLayout Grid.Column="0">
+                    <Label Text="Check Out Location" TextColor="#373D4B" FontSize="Small"  FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1">
+                    <Label x:Name="checkout_loc_txt" Margin="2,0,0,0" HorizontalOptions="Start" TextColor="#373D4B" FontSize="Small"/>
+                </StackLayout>                
+            </Grid> 
+
+                <StackLayout Padding="10" BackgroundColor="Transparent">
+                 <Label Text="Sign Out" TextColor="#373D4B" FontSize="Small"  FontAttributes="Bold"/>                
+                <StackLayout Padding="10" BackgroundColor="#363E4B">
+                    <StackLayout  VerticalOptions="Center">            
+                    <maps:Map WidthRequest="300" HeightRequest="150"
+                  x:Name="sign_out_map"
+                  IsShowingUser="true"
+                  MapType="Street" />
+                     </StackLayout>                                      
+                     </StackLayout>                    
+               </StackLayout>
+
+                <BoxView HeightRequest="10" BackgroundColor="Transparent"/>
+            
+    </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HRMAPP.Views.MasterPage" x:Name="masterpage"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions">
+
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu" >
+            <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical" BackgroundColor="#373D4B" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+
+                <StackLayout  BackgroundColor="#373D4B"  HorizontalOptions="FillAndExpand" Padding="0,15,0,10" >
+
+                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="80" HeightRequest="80">
+                        <controls:CircleImage Source="profileimg.png" x:Name="UserImage" Aspect="AspectFill" HorizontalOptions="StartAndExpand" WidthRequest="80" HeightRequest="80"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" HorizontalOptions="Center"  VerticalOptions="Center">
+                        <Label x:Name="masterPageName" FontSize="Small" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center"/>
+                        <Label x:Name="masterPageRole" FontSize="Small"  HorizontalOptions="Center" TextColor="#F0EEEF" />
+                    </StackLayout>
+
+                </StackLayout>
+
+                <StackLayout>
+                    <ListView x:Name="listItems"  ItemTapped="menu_ItemTapped"  HasUnevenRows="True" BackgroundColor="#FFFFFF" >
+                        <!--BackgroundColor="#CB454C"-->
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell Tapped="ViewCell_Tapped">
+                                    <!--Tapped="ViewCell_Tapped"-->
+                                    <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="20,10,0,10"  >
+                                        <Image Source="{Binding Icon}" VerticalOptions="Start" HorizontalOptions="Start"  WidthRequest="25" HeightRequest="25"/>
+                                        <Label Text="{Binding Title}" VerticalOptions="Center" HorizontalOptions="Center"  Margin="10,0,0,0" TextColor="Black" FontSize="Small"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+                <StackLayout  Padding="20,0,0,10" >
+                    <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                        <Label x:Name="powered_by" Text="Powered By" HorizontalTextAlignment="Center" TextColor="White" FontSize="Micro" VerticalTextAlignment="Center"/>
+                        <Label x:Name="by_hashmicro" Text=" HashMicro" HorizontalTextAlignment="Start" FontAttributes="Bold" TextColor="White" FontSize="Small" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                </StackLayout>
+
+            </StackLayout>
+
+           <StackLayout IsVisible="false" x:Name="act_layout" Padding="12"
+                 AbsoluteLayout.LayoutFlags="PositionProportional"
+                 AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+            <ActivityIndicator  x:Name="act_ind"  IsRunning="false"  Color ="Red"/>
+          </StackLayout>
+                
+                </AbsoluteLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+
+
+
+</MasterDetailPage>

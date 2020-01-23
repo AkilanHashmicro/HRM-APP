@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HRMAPP.Views.AttendancesPage"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             BackgroundColor="#F0EEEF" Title="Attendances">
+ <ContentPage.Content>
+
+ <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            
+        <StackLayout  AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">    
+
+
+                 <StackLayout Orientation="Horizontal" Padding="10" >
+                        <Button Text="My Attendances" x:Name="pause_btn"  HorizontalOptions="FillAndExpand" Clicked="myattandancebtn__clicked"  TextColor="White" BackgroundColor="#128193"/>
+                </StackLayout>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height=".15*"/>
+                    <RowDefinition  Height=".60*"/>
+                    <RowDefinition  Height=".25*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".10*"/>
+                    <ColumnDefinition Width=".80*"/>
+                    <ColumnDefinition Width=".10*"/>
+                </Grid.ColumnDefinitions>
+
+             
+                    
+                
+                <Frame  CornerRadius="10" BackgroundColor="White" Grid.Row="1" Grid.Column="1"  >
+                    <StackLayout >
+
+                        <StackLayout x:Name="checkIn_layout">
+                            <Grid>                                
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height=".05*"/>
+                                    <RowDefinition Height=".25*"/>
+                                    <RowDefinition Height=".45*"/>
+                                    <RowDefinition Height=".25*"/>
+                                </Grid.RowDefinitions>
+
+                                <StackLayout Grid.Row="1">
+                                    <StackLayout>
+                                        <Label  x:Name="welcome_label" Text="Welcome Administrator" TextColor="#102b1e" FontSize="Medium" FontAttributes="Bold" VerticalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center" />
+                                    </StackLayout>
+
+                                    <StackLayout>
+                                        <Label  x:Name="checkIn" Text="Click to check in"  FontSize="Small" VerticalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                
+                                <StackLayout Grid.Row="2">
+                                    
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width=".10*"/>
+                                            <ColumnDefinition Width=".40*"/>
+                                            <ColumnDefinition Width=".10*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackLayout Grid.Column="1" x:Name="checkIn_click">
+                                            <Frame CornerRadius="15" BackgroundColor="#128193" Padding="5,5,5,5" >
+                                                <StackLayout Padding="5,5,5,5">
+                                                    <Image Source="checkin.png" />
+                                                </StackLayout>
+                                            </Frame>
+                                        </StackLayout>
+                                    </Grid>
+
+                                </StackLayout>
+                                
+                            </Grid>
+                          
+                        </StackLayout>
+
+                        <StackLayout x:Name="checkout_layout" IsVisible="False" >
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height=".05*"/>
+                                    <RowDefinition Height=".25*"/>
+                                    <RowDefinition Height=".45*"/>
+                                    <RowDefinition Height=".25*"/>
+                                </Grid.RowDefinitions>
+
+                                <StackLayout Grid.Row="1">
+                                    <StackLayout>
+                                        <Label  x:Name="welcome_out" Text="Welcome Administrator" TextColor="#102b1e" FontSize="Medium" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Label  x:Name="checkout" Text="Click to check out"  FontSize="Small" VerticalOptions="Center" HorizontalOptions="Center"  VerticalTextAlignment="Center"/>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <BoxView BackgroundColor="Transparent" HeightRequest="5"/>
+
+                                <Grid Grid.Row="2" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width=".10*"/>
+                                        <ColumnDefinition Width=".40*"/>
+                                        <ColumnDefinition Width=".10*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Grid.Column="1" x:Name="checkout_click">
+                                        <Frame CornerRadius="15" BackgroundColor="#128193" Padding="5,5,5,5" >
+                                            <StackLayout Padding="5,5,5,5">
+                                                <Image Source="checkout.png" />
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                </Grid>
+
+                            </Grid>
+                          
+                        </StackLayout>
+
+                        <StackLayout x:Name="message_welcome" IsVisible="False">
+
+                            <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+                            <StackLayout>
+                                <Label  x:Name="check_in_time" Text="Checked in at 16:41:34" TextColor="#102b1e" FontSize="Medium" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="check_in_welcome" Text="Welcome Administrator" FontSize="Small" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                            </StackLayout>
+                            <StackLayout>
+                                <Label  x:Name="check_in_message" Text="Good evening" FontSize="Small" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                            </StackLayout>
+
+                            <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+                            <StackLayout>
+                                <Button Text="Ok" TextColor="White" BackgroundColor="#128193" HeightRequest="40" Clicked="Ok_checkIn_Btn_Clicked"/>
+                            </StackLayout>
+                        </StackLayout>
+
+
+                        <StackLayout x:Name="message_goodbye" IsVisible="False">
+
+                            <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+                            <StackLayout>
+                                <Label  x:Name="check_out_time" Text="Checked out at 16:42:38" TextColor="#102b1e" FontSize="Medium" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="check_out_welcome" Text="Goodbye Administrator" FontSize="Small" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                            </StackLayout>
+                            <StackLayout>
+                                <Label  x:Name="check_out_message" Text="Good evening" FontSize="Small" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                            </StackLayout>
+
+                            <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+                            <StackLayout>
+                                <Button Text="Ok" TextColor="White" BackgroundColor="#128193" HeightRequest="40" Clicked="Ok_checkOut_Btn_Clicked"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+                </Frame>
+            </Grid>
+            
+             <!-- <StackLayout Padding="10" BackgroundColor="Transparent">
+                <StackLayout Padding="10" BackgroundColor="#363E4B">
+                    <StackLayout  VerticalOptions="Center">            
+                    <maps:Map WidthRequest="400" HeightRequest="250"
+                  x:Name="MyMap"
+                  IsShowingUser="true"
+                  MapType="Street" />
+                     </StackLayout>
+                                      
+                     </StackLayout>
+                    
+               </StackLayout>-->
+            
+        </StackLayout>
+
+             <StackLayout IsVisible="true" Padding="0,-20,0,0"
+                 AbsoluteLayout.LayoutFlags="PositionProportional"
+                 AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+              <ActivityIndicator  x:Name="act_ind"  IsRunning="false" Color ="Red"/>
+            </StackLayout>
+            
+            </AbsoluteLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
+    

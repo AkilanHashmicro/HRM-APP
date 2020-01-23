@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="HRMAPP.Pages.LeavesCreation" >
+
+    <ContentPage.Content>
+        <ScrollView Padding="0,40,0,0" >
+
+ <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+ <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+            
+            <Grid Padding="10" >
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="9*"/>
+                </Grid.ColumnDefinitions>
+
+                <Frame CornerRadius="10" x:Name="frame_container" Padding="1,5,1,1" BackgroundColor="#F0EEEF" >
+                    <StackLayout BackgroundColor="#F0EEEF">
+
+                        <StackLayout HorizontalOptions="End" Padding="5,5,5,0" >
+                            <Image Source="cancel.png" x:Name="overall_close" WidthRequest="24" HeightRequest="24" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="0,10,0,0">
+                            <Label Text="Leave Creation" TextColor="#102b1e"  FontSize="Large" />
+                        </StackLayout>
+
+                        <BoxView  VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" WidthRequest="50" Color="#5b5d68"/>
+
+                        <StackLayout Padding="10,10,10,0">
+
+
+                            <!--<Image Source="attach1.png" WidthRequest="50"  HeightRequest="50" x:Name="paperclip" HorizontalOptions="End"/>-->
+
+                            <StackLayout>
+                                <Label Text="Reason" TextColor="#102b1e" FontAttributes="Bold" FontSize="Small"/>
+                                <Entry Text="" Margin="10,0,10,0" x:Name="reason" Placeholder="" HorizontalOptions="FillAndExpand" FontSize="Medium"/>
+                            </StackLayout>
+
+                            <StackLayout>
+                                <Label Text="Leave Type" TextColor="#102b1e" FontAttributes="Bold" FontSize="Small"  />
+                            </StackLayout>
+                            <StackLayout Padding="10,0,0,0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="8*" />
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Picker Grid.Column="0" Margin="0,0,-30,0"  x:Name="leaveType_picker"  SelectedIndexChanged="LeaveType_picker_SelectedIndexChanged"/>
+                                    <StackLayout Grid.Column="1" >
+                                        <Image  Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="0,15,0,0" />
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>
+
+               <StackLayout Padding="0,0,0,0" x:Name="leavepick_alert" IsVisible="false" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                              
+                <Image   Source="emptyAlert.png" WidthRequest="18" HeightRequest="18" HorizontalOptions="Start" />
+
+                 <Label Text="Leave type should not be empty." Margin="0,2,0,0" FontSize="Micro" TextColor="#ce434a"  HorizontalTextAlignment="Center"/>
+                                             
+                </StackLayout>
+
+                            <StackLayout>
+                                <Label Text="HR Year" TextColor="#102b1e" FontAttributes="Bold" FontSize="Small"  />
+                            </StackLayout>
+                            <StackLayout Padding="10,0,0,0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="8*" />
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Picker Grid.Column="0" Margin="0,0,-30,0"  x:Name="hr_year_picker"  />
+                                    <StackLayout Grid.Column="1" >
+                                        <Image  Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="0,15,0,0" />
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>
+
+                            <!--<StackLayout>
+                                <Label Text="Employee" TextColor="#102b1e" FontAttributes="Bold" FontSize="Small"  />
+                            </StackLayout>
+                            <StackLayout Padding="10,0,0,0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="8*" />
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Picker Grid.Column="0" Margin="0,0,-30,0"  x:Name="employee_picker"  />
+                                    <StackLayout Grid.Column="1" >
+                                        <Image  Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="0,15,0,0" />
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>-->
+
+                            <StackLayout>
+                                <Label Text="Duration" TextColor="#102b1e" FontAttributes="Bold" FontSize="Small"  />
+                            </StackLayout>
+
+                            <StackLayout Padding="5,5,5,5">
+
+                                <Frame Padding="2,2,2,2" CornerRadius="5" BackgroundColor="White" BorderColor="#128193">
+
+                                    <StackLayout Padding="5,5,5,5">
+
+                                        <StackLayout x:Name="startdate_layout">
+
+                                            <StackLayout>
+                                                <Label Text="Start Date" TextColor="#102b1e" FontAttributes="Bold" FontSize="Small"/>
+                                            </StackLayout>
+
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width=".20*"/>
+                                                        <ColumnDefinition Width=".40*"/>
+                                                        <ColumnDefinition Width=".05*"/>
+                                                        <ColumnDefinition Width=".20*"/>
+                                                        <ColumnDefinition Width=".15*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout  Grid.Column="0">
+                                                        <Image Source="cal_clock.png" WidthRequest="20" HeightRequest="20" Margin="0,10,0,0" />
+                                                    </StackLayout>
+                                                    <StackLayout Grid.Column="1">
+                                                        <DatePicker  x:Name="start_date" />
+                                                    </StackLayout>
+                                                    <StackLayout Grid.Column="3">
+                                                        <TimePicker x:Name="start_time"  Format="HH:mm"  />
+                                                    </StackLayout>
+
+                                                </Grid>
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                        
+                                        <StackLayout x:Name="enddate_layout">
+
+                                            <StackLayout>
+                                                <Label Text="End Date" TextColor="#102b1e" FontAttributes="Bold" FontSize="Small"/>
+                                            </StackLayout>
+
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width=".20*"/>
+                                                        <ColumnDefinition Width=".40*"/>
+                                                        <ColumnDefinition Width=".05*"/>
+                                                        <ColumnDefinition Width=".20*"/>
+                                                        <ColumnDefinition Width=".15*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout  Grid.Column="0">
+                                                        <Image Source="cal_clock.png" WidthRequest="20" HeightRequest="20" Margin="0,10,0,0" />
+                                                    </StackLayout>
+                                                    <StackLayout Grid.Column="1">
+                                                        <DatePicker  x:Name="stop_date" />
+                                                    </StackLayout>
+                                                    <StackLayout Grid.Column="3">
+                                                        <TimePicker x:Name="stop_time"  Format="HH:mm"/>
+                                                    </StackLayout>
+
+                                                </Grid>
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                       
+                                        <StackLayout  x:Name="halfday_layout" IsVisible="False">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width=".2*" />
+                                                    <ColumnDefinition Width=".07*" />
+                                                    <ColumnDefinition Width=".2*"/>
+                                                    <ColumnDefinition Width=".1*"/>
+                                                    <ColumnDefinition Width=".4*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Label Text="Half Day" Grid.Column="0" TextColor="#102b1e" FontAttributes="Bold" FontSize="Small" Margin="0,15,0,0" />
+                                                <Image  Grid.Column="1" x:Name="uncheckImg" Source="uncheck.png"  />
+                                                <Image  Grid.Column="1" x:Name="checkImg" Source="check.png" IsVisible="False" />
+                                                <Picker Grid.Column="2" Margin="10,0,-30,0"  x:Name="half_dayPicker"  IsVisible="False" />
+                                                <StackLayout Grid.Column="3" x:Name="drdownImg" IsVisible="False">
+                                                    <Image  Source="drdown.png"  WidthRequest="10" HeightRequest="10" Margin="0,15,0,0" />
+                                                </StackLayout>
+                                            </Grid>
+                                        </StackLayout>
+
+
+                                    </StackLayout>
+
+                                </Frame>
+
+
+                            </StackLayout>
+
+
+                            <Label Text="Attachment :" TextColor="#102b1e" FontSize="Medium" Margin="5,0,0,0"/>
+
+                            <ListView x:Name="attachviewlist"  IsVisible="False" SeparatorColor="#F0EEEF">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell Tapped="ViewCell_Tapped">
+                                            <StackLayout Padding="10,0,10,0" >
+                                                <Frame Padding="5,5,5,5" BackgroundColor="#373D4B" CornerRadius="5">
+                                                    <StackLayout>
+                                                        <Grid Padding="5,5,0,5">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width=".8*"/>
+                                                                <ColumnDefinition Width=".1*"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <Label Text="{Binding file_name}" TextColor="White" Grid.Column="0" FontSize="Small" FontAttributes="Bold" />
+                                                            <Image Source="delete_white.png" Grid.Column="1" WidthRequest="10" HeightRequest="10" >
+                                                                <Image.GestureRecognizers>
+                                                                    <TapGestureRecognizer Tapped="delete_Tapped" CommandParameter="{Binding .}" />
+                                                                </Image.GestureRecognizers>
+                                                            </Image>
+                                                        </Grid>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                            <Image  x:Name="add_attachment" Source="attachclip.png" WidthRequest="50" HeightRequest="30" HorizontalOptions="Start" Margin="10,0,0,-5"/>
+
+
+                            <BoxView BackgroundColor="Transparent"  HeightRequest="10"/>
+                            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Orientation="Horizontal" x:Name="createStackLayout" >
+                                <Button Text="Create" HorizontalOptions="StartAndExpand" TextColor="White" BackgroundColor="Black" HeightRequest="40" Clicked="create_Clicked"/>
+                                <Button Text="Discard" HorizontalOptions="StartAndExpand" TextColor="Black" BackgroundColor="White" HeightRequest="40" Clicked="discard_Clicked"/>
+                            </StackLayout>
+                            <BoxView BackgroundColor="Transparent"  HeightRequest="10"/>
+
+
+                        </StackLayout>
+
+
+                    </StackLayout>
+                </Frame>
+
+            </Grid>
+                    
+     </StackLayout>
+      <StackLayout IsVisible="true" Padding="12"
+                 AbsoluteLayout.LayoutFlags="PositionProportional"
+                 AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+       <ActivityIndicator  x:Name="act_ind"  IsRunning="false" Color ="Red"/>
+     </StackLayout>
+                
+                </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+
+</pages:PopupPage>

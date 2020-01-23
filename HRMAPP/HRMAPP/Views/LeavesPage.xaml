@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+             x:Class="HRMAPP.Views.LeavesPage" Title="LEAVES" x:Name="mainlayout">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="filter1.png" Activated="FilterbarItem_Activated" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+       
+<!--
+             <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+             <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">   -->         
+
+        <RelativeLayout>
+            <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"  
+                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}" >
+
+                <StackLayout>
+
+                    <StackLayout Padding="10" x:Name="calendar_layout">
+                        <syncfusion:SfCalendar x:Name="calendar"  ShowInlineEvents="false" MonthChanged="calendar_MonthChangedAsync" />
+                    </StackLayout>
+
+                    <ListView x:Name="leavelist" HasUnevenRows="True"  ItemTapped="Leavelist_ItemTapped" IsPullToRefreshEnabled="True" Refreshing="Leavelist_Refreshing">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell Tapped="ViewCell_Tapped">
+                                    <StackLayout Padding="5,5,5,5">
+                                        <Frame  BackgroundColor="#FFFFFF" HasShadow="True" CornerRadius="5"  Padding="2,2,2,2">
+                                            <StackLayout Padding="5,5,5,5">
+                                                <Grid>
+                                                    <StackLayout Grid.Row="0">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width=".60*" />
+                                                                <ColumnDefinition Width=".40*" />
+                                                            </Grid.ColumnDefinitions>
+
+                                                            <Label Text="{Binding employee}"  FontSize="Medium" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" TextColor="Black" />
+
+                                                            <StackLayout  Grid.Row="0" Grid.Column="1" HorizontalOptions="End">
+                                                                <Frame CornerRadius="3" Padding="5,1,5,1" HasShadow="True" BackgroundColor="{Binding stage_colour}" >
+                                                                    <StackLayout>
+                                                                        <Label Text="{Binding state_name}" FontSize="Small" TextColor="White" />
+                                                                    </StackLayout>
+                                                                </Frame>
+                                                            </StackLayout>
+
+                                                        </Grid>
+
+                                                    </StackLayout>
+
+                                                    <StackLayout Grid.Row="1">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width=".62*"/>
+                                                                <ColumnDefinition Width=".04*"/>
+                                                                <ColumnDefinition Width=".16*"/>
+                                                                <ColumnDefinition Width=".02*"/>
+                                                                <ColumnDefinition Width=".16*"/>
+                                                            </Grid.ColumnDefinitions>
+
+                                                            <Label Text="{Binding name}" Grid.Row="0" Grid.Column="0" FontSize="Small" />
+                                                            <Image Source="{Binding sync_string}" Grid.Column="1" Grid.Row="0" WidthRequest="20" HeightRequest="20" HorizontalOptions="Start"/>
+                                                            <Label Text="{Binding datefrom}" Grid.Row="0" Grid.Column="2" FontSize="Small" HorizontalOptions="Start" TextColor="#8a000000"/>
+                                                            <Label Text="-" Grid.Row="0" Grid.Column="3"  HorizontalOptions="CenterAndExpand"/>
+                                                            <Label Text="{Binding dateto}" Grid.Row="0" Grid.Column="4" FontSize="Small"  HorizontalOptions="End" TextColor="#8a000000"/>
+
+                                                        </Grid>
+
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+
+                </StackLayout>
+               
+            </ContentView>
+
+            <Image Source="plus.png" x:Name="plus" WidthRequest="50" HeightRequest="50" 
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-58}"  
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-68}" />
+
+            <Image Source="listicon.png" x:Name="draft" WidthRequest="40" HeightRequest="40" IsVisible="False" 
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-52}"  
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-545}" />
+            <Frame BackgroundColor="#008FD3" CornerRadius="3" Padding="5,5,5,5" x:Name="draftlabel" IsVisible="False" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"
+                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-98}"  
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-540}" >
+                <Label Text="New" TextColor="White" HorizontalTextAlignment="End" HorizontalOptions="End"/>
+            </Frame>
+
+            <Image Source="listicon.png" x:Name="confirm" WidthRequest="40" HeightRequest="40" IsVisible="False" 
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-52}"  
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-500}" />
+            <Frame BackgroundColor="#efb139" CornerRadius="3" x:Name="confirmlabel" IsVisible="False" Padding="5,5,5,5" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"
+                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-200}"  
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-495}" >
+                <Label Text="Waiting Pre-Approval" HorizontalTextAlignment="End" TextColor="White" HorizontalOptions="End"/>
+            </Frame>
+
+            <Image Source="listicon.png" x:Name="cancel" WidthRequest="40" HeightRequest="40" IsVisible="False" 
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-52}"  
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-460}" />
+            <Frame BackgroundColor="#ea1621" CornerRadius="3" Padding="5,5,5,5" x:Name="cancellabel" IsVisible="False" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"
+                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-112}"  
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-455}" >
+                <Label Text="Cancel" TextColor="White" HorizontalTextAlignment="End" HorizontalOptions="End"/>
+            </Frame>
+            
+            <Image Source="listicon.png" x:Name="validate" WidthRequest="40" HeightRequest="40" IsVisible="False" 
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-52}"  
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-420}" />
+            <Frame BackgroundColor="#2fb25f" CornerRadius="3" Padding="5,5,5,5"  x:Name="validatelabel" IsVisible="False" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"
+                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-130}"  
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-415}">
+                <Label Text="Approved" HorizontalTextAlignment="End" TextColor="White" HorizontalOptions="End"/>
+            </Frame>
+
+
+            <Image Source="listicon.png" x:Name="refuse" WidthRequest="40" HeightRequest="40" IsVisible="False" 
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-52}"  
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-380}" />
+            <Frame BackgroundColor="#ea1621" CornerRadius="3" Padding="5,5,5,5" x:Name="refuselabel" IsVisible="False" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"
+                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-122}"  
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-375}" >
+                <Label Text="Refused" HorizontalTextAlignment="End" TextColor="White" HorizontalOptions="End" />
+            </Frame>
+
+            <Image Source="listicon.png" x:Name="all" WidthRequest="40" HeightRequest="40" IsVisible="False" 
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-52}"  
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-340}" />
+            <Frame BackgroundColor="#000" CornerRadius="3" Padding="5,5,5,5" x:Name="alllabel" IsVisible="False"  HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"
+                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-94}"  
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-335}" >
+                <Label Text="ALL" HorizontalTextAlignment="End" TextColor="White" HorizontalOptions="End" />
+            </Frame>
+
+
+        </RelativeLayout>
+
+     <!--                </StackLayout>
+
+     <StackLayout IsVisible="true" Padding="12"
+                 AbsoluteLayout.LayoutFlags="PositionProportional"
+                 AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+       <ActivityIndicator  x:Name="act_ind"  IsRunning="false" Color ="Red"/>
+     </StackLayout>
+            
+            </AbsoluteLayout>-->
+       
+    </ContentPage.Content>
+</ContentPage>

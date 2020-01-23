@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HRMAPP.Pages.FileAttachmentPage"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" >
+
+    <!--<AbsoluteLayout>
+
+            <StackLayout AbsoluteLayout.LayoutBounds="0.5,1,300,200" AbsoluteLayout.LayoutFlags="PositionProportional">
+
+                <Frame CornerRadius="10">
+
+                    <Grid BackgroundColor="White">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".50*"/>
+                            <ColumnDefinition Width=".50*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout x:Name="camera_click"  Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Image Source="camera1.png" WidthRequest="50" HeightRequest="50" />
+                            <Label Text="Camera" FontSize="Small" HorizontalTextAlignment="Center"/>
+                        </StackLayout>
+
+                        <StackLayout x:Name="gallery_click" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Image Source="gallery1.png" WidthRequest="50" HeightRequest="50"/>
+                            <Label Text="Gallery" FontSize="Small" HorizontalTextAlignment="Center"/>
+                        </StackLayout>
+
+                    </Grid>
+
+                </Frame>
+                --><!--<ContentView AbsoluteLayout.LayoutFlags="PositionProportional"
+                         AbsoluteLayout.LayoutBounds="0.5, 1,300,200" />--><!--
+
+             </StackLayout>
+
+     </AbsoluteLayout>-->
+
+    <AbsoluteLayout HorizontalOptions="End" VerticalOptions="End" Margin="0,0,0,20" >
+        <Frame Margin="15" CornerRadius="10" BackgroundColor="White">
+
+
+            <StackLayout>
+
+                <!--<StackLayout x:Name="camera_click"  HorizontalOptions="Center" >
+                    <Image Source="camera1.png" WidthRequest="50" HeightRequest="50" />
+                    <Label Text="Camera" FontSize="Small" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+
+                <StackLayout x:Name="gallery_click" HorizontalOptions="Center" >
+                    <Image Source="gallery1.png" WidthRequest="50" HeightRequest="50"/>
+                    <Label Text="Gallery" FontSize="Small" HorizontalTextAlignment="Center"/>
+                </StackLayout>-->
+
+                <Grid BackgroundColor="White">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".50*"/>
+                        <ColumnDefinition Width=".50*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout x:Name="camera_click"  Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image Source="camera1.png" WidthRequest="50" HeightRequest="50" />
+                        <Label Text="Camera" FontSize="Small" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+
+                    <StackLayout x:Name="gallery_click" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image Source="gallery1.png" WidthRequest="50" HeightRequest="50"/>
+                        <Label Text="Gallery" FontSize="Small" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+
+                </Grid>
+
+            </StackLayout>
+
+        </Frame>
+        <ContentView AbsoluteLayout.LayoutFlags="PositionProportional"
+                     AbsoluteLayout.LayoutBounds="0.5, 1, 300, -1"/>
+
+
+    </AbsoluteLayout>
+
+
+</pages:PopupPage>

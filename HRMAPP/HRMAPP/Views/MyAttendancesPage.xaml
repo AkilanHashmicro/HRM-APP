@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HRMAPP.Views.MyAttendancesPage" Title="My Attendances">
+    <ContentPage.Content>
+
+     <RelativeLayout >
+            <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"  
+                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}" >
+
+                <ListView x:Name="expenselist" HasUnevenRows="True" ItemTapped="myattendance_ItemTapped" IsPullToRefreshEnabled="false" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="5,5,5,5" >
+                                    <Frame  BackgroundColor="#FFFFFF" HasShadow="True"  CornerRadius="5"  Padding="10,10,10,10">
+                                        <StackLayout>
+
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width=".90*" />
+                                                    <ColumnDefinition Width=".10*" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label Text="{Binding employee_name}"  FontSize="Medium" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" TextColor="Black" />
+
+                                               <!-- <StackLayout  Grid.Row="0" Grid.Column="1" HorizontalOptions="End">
+                                                     <Label Text="{Binding project_name}"  FontSize="Small"  Grid.Row="0" Grid.Column="0" TextColor="Black" />
+                                                                                                     
+                                                </StackLayout>-->
+
+                                            </Grid>
+
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width=".45*" />
+                                                    <ColumnDefinition Width=".10*" /> 
+                                                    <ColumnDefinition Width=".45*" /> 
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label Text="{Binding check_in}" TextColor="Green"  Grid.Row="0" Grid.Column="0" FontSize="Small"/>
+                                                 <Label Text="To" TextColor="Black"  Grid.Row="0" Grid.Column="1" FontSize="Small"/>
+                                                 <Label Text="{Binding check_out}"  TextColor="Red" Grid.Row="0" Grid.Column="2" FontSize="Small"/>
+
+                                              <!--  <StackLayout  Grid.Row="0" Grid.Column="1" HorizontalOptions="End">                                                    
+                                                    <Frame CornerRadius="3" Padding="5,1,5,1" HasShadow="True" BackgroundColor="Teal" >
+                                                        <StackLayout>
+                                                           <Label Text="{Binding check_out}"  HorizontalOptions="EndAndExpand" FontSize="Small" TextColor="White"/>
+                                                        </StackLayout>
+                                                    </Frame>
+                                                </StackLayout>-->
+                                                                                              
+
+                                            </Grid>
+                                                                      
+
+                                        </StackLayout>
+                                    </Frame>
+
+                                </StackLayout>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </ContentView>
+
+          
+        </RelativeLayout>
+
+  
+
+    </ContentPage.Content>
+</ContentPage>

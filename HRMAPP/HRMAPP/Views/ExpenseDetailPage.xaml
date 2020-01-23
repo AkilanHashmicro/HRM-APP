@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HRMAPP.Views.ExpenseDetailPage" Title="Expense Details">
+    
+    <ContentPage.Content>
+        
+   <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+ <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+
+            <RelativeLayout>
+                <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"  
+                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}" >
+
+                    <ScrollView>
+                        <StackLayout>
+
+            <Grid BackgroundColor="#363E4B" Padding="5">
+                 <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".15*"/>
+                        <ColumnDefinition Width=".75*"/>
+                            <ColumnDefinition Width=".10*"/>
+                    </Grid.ColumnDefinitions>
+
+                   
+                    <StackLayout Grid.Column="0">
+                        <Image x:Name="backImg"  Source="barrow108.png" Margin="5,5,0,5" WidthRequest="24" HeightRequest="24"  />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1">
+                        <Label Text="Schedule Details" x:Name="HideLbl" Margin="0,5,0,0" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="White" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="2">
+                       <!--  <Image x:Name="toolImg"  Source="edittool.png"  WidthRequest="24" HeightRequest="24"  />-->
+                    </StackLayout>
+
+                  
+            </Grid>
+                                
+                            <BoxView HeightRequest="10" BackgroundColor="Transparent"/>
+
+                            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" x:Name="btnStack">
+                                <Button x:Name="btnsubmit" Clicked="btnSubmit_Clicked" Text="Submit to Manager"  BackgroundColor="#128193" TextColor="White" HeightRequest="40" IsVisible="false"/>                            
+                                <Button x:Name="btnApprove" Clicked="btnApprove_Clicked" Text="Approve"  BackgroundColor="#128193" TextColor="White" HeightRequest="40" IsVisible="false"/>
+                                <!--<Button x:Name="btnConfirm" Text="Confirm"  BackgroundColor="#128193" TextColor="White" HeightRequest="40"/>
+                                <Button x:Name="btnRefuse" Text="Refuse" BackgroundColor="#ea1621" TextColor="White" HeightRequest="40"/>
+                                <Button x:Name="btnDraft" Text="Reset to Draft" BackgroundColor="#008FD3" TextColor="White" HeightRequest="40"/>-->
+                            </StackLayout>
+
+                            <StackLayout  Padding="15,5,15,10" >
+                                
+                                <Label x:Name="description_Name" TextColor="Black" FontSize="Large" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+
+                                <Frame Padding="5,5,5,5" HasShadow="true" CornerRadius="5" > <!--BorderColor="#373D4B"-->
+                                    <StackLayout Padding="5,0,5,5" BackgroundColor="White">
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="State" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                                            <StackLayout Orientation="Horizontal" Margin="15,0,0,0" >
+                                                <Frame CornerRadius="3" Padding="5,2,5,2" x:Name="frame_state_color" >
+                                                    <Label  x:Name="statelabel" TextColor="White" />
+                                                </Frame>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>
+
+
+                                        <StackLayout x:Name="des_layout" IsVisible="false">
+                                            <Label Text="Expense Description" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />                                           
+                                            <Entry Margin="15,0,0,0" Text="" x:Name="expdescription_entry"  />
+                                        </StackLayout>
+
+                                          <StackLayout Padding="0,0,0,0" x:Name="exdes_alert" IsVisible="false" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                              
+                <Image   Source="emptyAlert.png" WidthRequest="18" HeightRequest="18" HorizontalOptions="Start" />
+
+                 <Label Text="Description should not be empty." Margin="0,2,0,0" FontSize="Micro" TextColor="#ce434a"  HorizontalTextAlignment="Center"/>
+                                             
+                </StackLayout>
+                                        
+                                        <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>
+
+                                        <StackLayout>
+                                            <Label Text="Product" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                                            <Label Margin="15,0,0,0" x:Name="productlabel" TextColor="#676262"  />
+                                        </StackLayout>
+                    <StackLayout Padding="15,0,0,0" x:Name="product_layout" IsVisible="False">
+
+                            <StackLayout Padding="10,0,0,0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="8*" />
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+                                    <!--<Picker Grid.Column="0" Margin="0,0,-30,0"  x:Name="product_picker" />-->
+                                    <StackLayout Grid.Column="0">
+                                        <Entry  Text=""  Margin="0,0,-30,0"  x:Name="searchprod" InputTransparent="true" />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="productentry" NumberOfTapsRequired="1"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="1" >
+                                        <Image x:Name="pickerdropimg" Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="0,15,0,0" />
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>
+                                            
+                                        <!--    <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="8*" />
+                                                    <ColumnDefinition Width="1*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Picker Grid.Column="0" Margin="0,0,-45,0"  x:Name="product_picker" />
+                                                <StackLayout Grid.Column="1" >
+                                                    <Image  Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="10,15,0,0" />
+                                                </StackLayout>
+                                            </Grid>-->
+
+                                            
+                                        </StackLayout>
+
+                 <StackLayout Padding="0,0,0,0" x:Name="product_alert" IsVisible="false" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                              
+                 <Image   Source="emptyAlert.png" WidthRequest="18" HeightRequest="18" HorizontalOptions="Start" />
+
+                 <Label Text="Product should not be empty." Margin="0,2,0,0" FontSize="Micro" TextColor="#ce434a"  HorizontalTextAlignment="Center"/>
+                                             
+                 </StackLayout>
+
+                                        <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>
+
+                                        <StackLayout>
+                                            <Label Text="Unit Price" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                                            <Label Margin="15,0,0,0" x:Name="pricelabel" TextColor="#676262"  />
+                                            <Entry Margin="15,0,0,0" Text="" x:Name="price_entry" Keyboard="Numeric" IsVisible="False" />
+                                        </StackLayout>
+                                        <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>
+
+                                        <StackLayout>
+                                            <Label Text="Quantity" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                                            <Label Margin="15,0,0,0" x:Name="qtylabel" TextColor="#676262"  />
+                                        </StackLayout>
+                                        <StackLayout Padding="15,0,0,0" x:Name="qty_layout" IsVisible="False">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="5*"/>
+                                                    <ColumnDefinition Width="5*" />
+                                                  <!--  <ColumnDefinition Width="1*" />-->
+                                                </Grid.ColumnDefinitions>
+                                                <Entry x:Name="qty" Placeholder="" Grid.Column="0" Keyboard="Numeric"/>
+                                               <Label Margin="0,15,0,0" Grid.Column="1" FontSize="Medium" x:Name="qtyvalue" TextColor="#676262"  />
+                                               <!-- <Picker Grid.Column="1" Margin="0,0,-40,0" x:Name="product_UOM_picker" />
+                                                <StackLayout Grid.Column="2" >
+                                                    <Image  Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="10,15,0,0" />
+                                                </StackLayout>-->
+                                            </Grid>
+                                        </StackLayout>
+
+                                        <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>
+
+                                        <StackLayout>
+                                            <Label Text="Bill Reference" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                                            <Label Margin="15,0,0,0" x:Name="referencelabel" TextColor="#676262"  />
+                                            <Entry Margin="15,0,0,0" Text="" x:Name="reference_entry"  IsVisible="False" />
+                                        </StackLayout>
+                                        <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>
+
+                                        <StackLayout>
+                                            <Label Text="Date" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                                       <!--     <Label Margin="15,0,0,0" Text="test date" x:Name="dateentry" TextColor="#676262" />-->
+                                            <Label Margin="15,0,0,0" Text="test date" x:Name="datelabel" TextColor="#676262"  />
+                                        </StackLayout>
+                                        <StackLayout Padding="15,0,0,0" x:Name="date_layout" IsVisible="False">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="8*" />
+                                                    <ColumnDefinition Width="1*" />
+                                                </Grid.ColumnDefinitions>
+                                                <DatePicker  x:Name="start_date"  Format="dd/MM/yyyy" Grid.Column="0" Margin="0,0,-45,0"/>
+                                                <StackLayout Grid.Column="1" >
+                                                    <Image  Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="10,15,0,0" />
+                                                </StackLayout>
+                                            </Grid>
+                                        </StackLayout>
+                                        <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>
+
+                                       <!-- <StackLayout>
+                                            <Label Text="Account" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                                            <Label Margin="15,0,0,0" x:Name="accountlabel" TextColor="#676262"  />
+                                        </StackLayout>
+                                        <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>-->
+
+                                        <StackLayout>
+                                            <Label Text="Employee" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                                            <Label Margin="15,0,0,0" x:Name="employeelabel" TextColor="#676262"  />
+                                        </StackLayout>
+                                        <StackLayout Padding="15,0,0,0" IsVisible="False" x:Name="employee_layout">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="8*" />
+                                                    <ColumnDefinition Width="1*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Picker Grid.Column="0" Margin="0,0,-45,0"  x:Name="employee_picker" />
+                                                <StackLayout Grid.Column="1" >
+                                                    <Image  Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="10,15,0,0" />
+                                                </StackLayout>
+                                            </Grid>
+                                        </StackLayout>
+
+                                        <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>
+
+                                        <StackLayout>
+                                            <Label Text="Currency" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                                            <Label Margin="15,0,0,0" x:Name="currencylabel" Text="" TextColor="#676262"  />
+                                        </StackLayout>
+
+                                        <StackLayout Padding="15,0,0,0" IsVisible="False" x:Name="currency_layout">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="8*" />
+                                                    <ColumnDefinition Width="1*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Picker Grid.Column="0" Margin="0,0,-45,0"  x:Name="currency_picker" />
+                                                <StackLayout Grid.Column="1" >
+                                                    <Image  Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="10,15,0,0" />
+                                                </StackLayout>
+                                            </Grid>
+                                        </StackLayout>
+
+                             <StackLayout x:Name="attach_layout" >
+                                            <Label Text="Attachment" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+
+                                            <ListView x:Name="attachviewlist" IsEnabled="false" HeightRequest="1" Margin="0,5,0,5"  SeparatorColor="#F0EEEF" >
+                                                <ListView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <ViewCell Tapped="ViewCell_Tapped">
+                                                            <StackLayout Padding="10,0,10,0" >
+                                                                <Frame Padding="5,5,5,5" BackgroundColor="#373D4B" CornerRadius="5">
+                                                                    <StackLayout >
+                                                                        <Grid Padding="5,5,0,5">
+                                                                            <Grid.ColumnDefinitions>
+                                                                                <ColumnDefinition Width=".8*"/>
+                                                                                <ColumnDefinition Width=".1*"/>
+                                                                            </Grid.ColumnDefinitions>
+
+                                                                             <Grid.RowDefinitions>
+                                                                                <RowDefinition Height="Auto"/>   
+                                                                                <RowDefinition Height="05*"/>
+                                                                            </Grid.RowDefinitions>
+                                                                            
+                                                                            <Label Text="{Binding file_name}" TextColor="White"  Grid.Column="0" FontSize="Small" FontAttributes="Bold" />
+                                                                            <Image Source="delete_white.png" Grid.Column="1" WidthRequest="10" HeightRequest="10" >
+                                                                                <Image.GestureRecognizers>
+                                                                                    <TapGestureRecognizer Tapped="delete_Tapped" CommandParameter="{Binding .}" />
+                                                                                </Image.GestureRecognizers>
+                                                                            </Image>
+                                                                        </Grid>
+                                                                    </StackLayout>
+                                                                </Frame>
+                                                            </StackLayout>
+                                                        </ViewCell>
+                                                    </DataTemplate>
+                                                </ListView.ItemTemplate>
+                                            </ListView>
+
+                                            <Image  x:Name="add_attachment" Source="attachclip.png" WidthRequest="50" HeightRequest="30" HorizontalOptions="Start" Margin="10,0,0,-5" IsEnabled="False"/>
+
+                                        </StackLayout>
+
+                                        <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>
+
+                                        
+                                        
+                                        <!--<BoxView HeightRequest="5" BackgroundColor="Transparent"/>-->
+
+
+
+                                    </StackLayout>
+                                </Frame>
+                                
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" x:Name="updatebtn" IsVisible="false">
+                                <Button Text="update" TextColor="White" HeightRequest="40" BackgroundColor="Black" Clicked="update_clickedAsync"/>
+                                <Button Text="Cancel" TextColor="Black" HeightRequest="40" BackgroundColor="White" Margin="5,0,0,0" Clicked="updatecancel_clickedAsync"/>
+                            </StackLayout>
+                            <BoxView HeightRequest="10" BackgroundColor="Transparent"/>
+
+                        </StackLayout>
+                        
+                    </ScrollView>
+
+
+                </ContentView>
+                <Image Source="pencil.png" x:Name="edit"  WidthRequest="50" HeightRequest="50" 
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-58}"  
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-68}" />
+            </RelativeLayout>
+
+        </StackLayout>
+
+            
+        <StackLayout IsVisible="true" Padding="12"
+                 AbsoluteLayout.LayoutFlags="PositionProportional"
+                 AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+       <ActivityIndicator  x:Name="act_ind"  IsRunning="false" Color ="Red"/>
+     </StackLayout>
+    </AbsoluteLayout>      
+
+           
+    </ContentPage.Content>
+</ContentPage>

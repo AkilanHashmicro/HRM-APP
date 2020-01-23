@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="HRMAPP.Pages.CustomAlert">
+    
+    <StackLayout VerticalOptions="Center" Spacing="15" Margin="30,0" BackgroundColor="#F0EEEF">
+
+        <StackLayout Orientation="Horizontal" HeightRequest="40" Padding="20,5,0,5"  BackgroundColor="#373D4B" >
+            <Label x:Name="Title" Text="Warning" FontSize="Medium"  TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
+        </StackLayout>
+
+        <Label x:Name="body" Text="" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Medium"/>
+
+        <BoxView HeightRequest="5" BackgroundColor="Transparent" />
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  >
+            <Button x:Name="cancelbtn" Text="Cancel" Clicked="Cancelbtn_Clicked" FontSize="Small" WidthRequest="80" HeightRequest="40"  BackgroundColor="#FFF" TextColor="Black"/>
+            <Button x:Name="okbtn" Text="Ok" Clicked="Okbtn_Clicked" FontSize="Small" WidthRequest="80" HeightRequest="40" Margin="10,0,0,0" BackgroundColor="#000" TextColor="White"/>
+            <!--<BoxView WidthRequest="20" BackgroundColor="Transparent"/>-->
+        </StackLayout>
+
+        <BoxView HeightRequest="1" BackgroundColor="Transparent"/>
+    </StackLayout>
+    
+</pages:PopupPage>
